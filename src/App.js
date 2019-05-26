@@ -1,36 +1,28 @@
 import React from "react";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
+import reduxThunk from "redux-thunk";
 
 import AddTodo from "./containers/AddTodo";
 import VisibleTodoList from "./containers/VisibleTodoList";
 
 import rootReducer from "./reducers";
 
-const todos = {
-  todos: [
-    {
-      id: 1,
-      text: "First todo",
-      completed: true
-    },
-    {
-      id: 2,
-      text: "Second todo",
-      completed: false
-    }
-  ]
+const state = {
+  todos: []
 };
 
-const store = createStore(rootReducer, todos);
+const store = createStore(rootReducer, state, applyMiddleware(reduxThunk));
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <AddTodo />
-      <VisibleTodoList todos={todos} />
-    </Provider>
-  );
-};
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <AddTodo />
+        <VisibleTodoList />
+      </Provider>
+    );
+  }
+}
 
 export default App;

@@ -7,7 +7,7 @@ const Todo = ({ text, completed, toggleTodo, deleteTodo }) => {
   if (completed) cn += " todo--completed";
 
   return (
-    <div className={cn}>
+    <li className={cn}>
       <input
         type="checkbox"
         className="todo-toggle-btn"
@@ -18,7 +18,7 @@ const Todo = ({ text, completed, toggleTodo, deleteTodo }) => {
       <button className="todo-delete-btn" onClick={deleteTodo}>
         X
       </button>
-    </div>
+    </li>
   );
 };
 
