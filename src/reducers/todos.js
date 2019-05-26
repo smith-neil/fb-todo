@@ -8,7 +8,7 @@ const todos = (state = [], action) => {
       return [
         ...state,
         {
-          id: state.length + 1,
+          id: action.id,
           completed: false,
           text: action.text
         }

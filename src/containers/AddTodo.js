@@ -1,11 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import AddTodo from "../components/AddTodo";
-
-const addTodo = text => ({
-  type: "ADD_TODO",
-  text
-});
+import { addTodo } from "../actions/todos";
 
 const mapDispatch = dispatch => ({
   addTodo: text => dispatch(addTodo(text))

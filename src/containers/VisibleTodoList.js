@@ -1,16 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import TodoList from "../components/TodoList";
-
-const toggleTodo = id => ({
-  type: "TOGGLE_TODO",
-  id
-});
-
-const deleteTodo = id => ({
-  type: "DELETE_TODO",
-  id
-});
+import { toggleTodo, deleteTodo } from "../actions/todos";
 
 const mapState = state => ({
   todos: state.todos
